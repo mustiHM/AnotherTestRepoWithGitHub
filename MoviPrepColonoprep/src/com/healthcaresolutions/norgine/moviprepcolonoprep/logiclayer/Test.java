@@ -1,4 +1,4 @@
-package com.healthcaresolutions.norgine.moviprepcolonoprep.logic;
+package com.healthcaresolutions.norgine.moviprepcolonoprep.logiclayer;
 
 public class Test {
 
