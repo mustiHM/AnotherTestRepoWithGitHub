@@ -2,6 +2,7 @@ package com.healthcaresolutions.norgine.moviprepcolonoprep.datalayer;
 
 import java.util.ArrayList;
 
+import com.healthcaresolutions.norgine.moviprepcolonoprep.common.Medicine;
 import com.healthcaresolutions.norgine.moviprepcolonoprep.common.Step;
 
 /** 
@@ -15,5 +16,12 @@ public interface ConfigReader {
 	 * @return eine ArrayList mit Ablaufsschritten
 	 */
 	public ArrayList<Step> getWorkflowSteps();
+	
+	
+	/**
+	 * Liest die Medizin-Konfig ein und gibt ein Java Objekt zurück.
+	 * @return das Medikament
+	 */
+	public Medicine getMedicine();
 	
 }
