@@ -1,0 +1,34 @@
+package com.healthcaresolutions.norgine.moviprepcolonoprep.logiclayer;
+
+import java.sql.Timestamp;
+import java.util.ArrayList;
+
+import com.healthcaresolutions.norgine.moviprepcolonoprep.common.Appointment;
+import com.healthcaresolutions.norgine.moviprepcolonoprep.common.Step;
+
+/**
+ * Bietet einen Dienst, der sich um die gesamten Ablauf der App kümmert.
+ * Muss thread-ähnlich implementiert werden, zwecks Parallellauffähigkeit.
+ */
+public interface WorkflowService {
+	
+	/**
+	 * Generiert anhand des Untersuchungstermins einen vollständigen Ablaufplan
+	 * @param a der Untersuchungstermin
+	 */
+	public void generateWorkflow(Appointment a);
+	
+	/**
+	 * Liefert den gesamten Ablaufplan.
+	 * @return Ablaufplan in Form einer ArrayList
+	 */
+	public ArrayList<Step> getAllSteps();
+	
+	/**
+	 * Liefert den nächsten Vorbereitungsschritt
+	 * @param t der aktuelle Zeitstempel, kann mit new Timestamp(System.currentTimeMillis() ermittelt werden
+	 * @return der nächste Vorbereitungsschritt
+	 */
+	public Step getNextStep(Timestamp t);
+
+}
