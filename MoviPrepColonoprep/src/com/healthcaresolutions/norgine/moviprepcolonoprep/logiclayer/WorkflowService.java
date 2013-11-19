@@ -13,7 +13,9 @@ import com.healthcaresolutions.norgine.moviprepcolonoprep.common.Step;
 public interface WorkflowService {
 	
 	/**
-	 * Generiert anhand des Untersuchungstermins einen vollständigen Ablaufplan
+	 * Generiert anhand des Untersuchungstermins einen vollständigen Ablaufplan.
+	 * Wird kein Termin mitgegeben, wird ein Ablaufplan ohne Zeitangaben erstellt.
+	 * Der Ablaufplan selber wird vom ConfigReader vorher eingelesen.
 	 * @param a der Untersuchungstermin
 	 */
 	public void generateWorkflow(Appointment a);
@@ -25,7 +27,8 @@ public interface WorkflowService {
 	public ArrayList<Step> getAllSteps();
 	
 	/**
-	 * Liefert den nächsten Vorbereitungsschritt
+	 * Liefert den nächsten Vorbereitungsschritt.
+	 * Bekommt von der DB den gesamten Plan und muss selbstständig den nächsten wählen.
 	 * @param t der aktuelle Zeitstempel, kann mit new Timestamp(System.currentTimeMillis() ermittelt werden
 	 * @return der nächste Vorbereitungsschritt
 	 */
