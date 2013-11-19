@@ -7,10 +7,17 @@ package com.healthcaresolutions.norgine.moviprepcolonoprep.common;
  */
 public class Patient {
 
+	private int id;
 	private int age;
 	private String country;
 	private String city;
 	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public int getAge() {
 		return age;
 	}

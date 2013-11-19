@@ -5,6 +5,7 @@ package com.healthcaresolutions.norgine.moviprepcolonoprep.common;
  */
 public class UserNotification {
 
+	private int id;
 	private String title;
 	private String describtion;
 	private long time; // siehe http://developer.android.com/reference/android/support/v4/app/NotificationCompat.Builder.html#setWhen%28long%29
@@ -12,6 +13,12 @@ public class UserNotification {
 	private String link; // das gleiche wie classLink, nur als String -> wichtig für DB
 	private Status status;
 	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public String getTitle() {
 		return title;
 	}
