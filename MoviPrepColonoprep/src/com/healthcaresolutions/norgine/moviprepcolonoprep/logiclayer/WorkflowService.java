@@ -15,6 +15,7 @@ public interface WorkflowService {
 	/**
 	 * Generiert anhand des Untersuchungstermins einen vollständigen Ablaufplan.
 	 * Wird kein Termin mitgegeben, wird ein Ablaufplan ohne Zeitangaben erstellt.
+	 * Wurde ein Termin gespeichert, werden die Ablaufschritte aus der DB mit einem Zeitstempel versehen.
 	 * Der Ablaufplan selber wird vom ConfigReader vorher eingelesen.
 	 * @param a der Untersuchungstermin
 	 */

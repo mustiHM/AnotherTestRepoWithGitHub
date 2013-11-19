@@ -10,17 +10,19 @@ public interface PatientAdministration {
 	/**
 	 * Speichert Daten des Patienten ab.
 	 * @param p die Daten des Patienten
+	 * @return gibt an ob die Aktion erfolgreich war oder nicht
 	 * @throws Exception falls Daten fehlerhaft
 	 */
-	public void insertInformation(Patient p) throws Exception;
+	public boolean insertInformation(Patient p) throws Exception;
 	
 	
 	/**
 	 * Aktualisiert die Patientendaten.
 	 * @param p die Daten des Patienten
+	 * @return gibt an ob die Aktion erfolgreich war oder nicht
 	 * @throws Exception falls Daten fehlerhaft
 	 */
-	public void updateInformation(Patient p) throws Exception;
+	public boolean updateInformation(Patient p) throws Exception;
 	
 	
 	/**

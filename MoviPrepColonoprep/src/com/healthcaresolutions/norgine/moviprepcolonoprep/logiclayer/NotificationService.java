@@ -19,15 +19,19 @@ public interface NotificationService {
 	/**
 	 * Speichert eine Benachrichtigung in die DB
 	 * @param n die zu speichernde Benachrichtigung
+	 * @return gibt an ob die Aktion erfolgreich war oder nicht
+	 * @throws falls DB Probleme
 	 */
-	public void addNotification(UserNotification n);
+	public boolean addNotification(UserNotification n) throws Exception;
 	
 	
 	/**
 	 * Aktualisiert eine Benachrichtigung in der Datenbank
 	 * @param n die zu aktualisierende Benachrichtigung
+	 * @return gibt an ob die Aktion erfolgreich war oder nicht
+	 * @throws falls DB Probleme
 	 */
-	public void updateNotification(UserNotification n);
+	public boolean updateNotification(UserNotification n) throws Exception;
 	
 	
 	/**
