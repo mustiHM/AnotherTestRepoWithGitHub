@@ -8,21 +8,25 @@ import com.healthcaresolutions.norgine.moviprepcolonoprep.common.Appointment;
 public interface AppointmentAdministration {
 	
 	/**
-	 * Speichert einen Untersuchungstermin in der Datenbank ab.
+	 * Speichert einen Untersuchungstermin im Android-Kalender und in der DB ab.
 	 * @param a der Untersuchungstermin
+	 * @return gibt an ob die Aktion erfolgreich war oder nicht
+	 * @throws Exception falls Daten ungültig
 	 */
-	public void addAppointment(Appointment a);
+	public boolean addAppointment(Appointment a) throws Exception;
 
 	/**
 	 * Aktualisiert die Daten eines Untersuchungstermins.
 	 * @param a der neue Untersuchungstermin
+	 * @return gibt an ob die Aktion erfolgreich war oder nicht
 	 * @throws Exception falls vorher keine Daten gespeichert waren
 	 */
-	public void updateAppointment(Appointment a) throws Exception;
+	public boolean updateAppointment(Appointment a) throws Exception;
 	
 	/**
 	 * Löscht den gespeicherten Untersuchungstermin
+	 * @return gibt an ob die Aktion erfolgreich war oder nicht
 	 * @throws Exception falls kein Datensatz zum Löschen existiert.
 	 */
-	public void deleteAppointment() throws Exception;
+	public boolean deleteAppointment() throws Exception;
 }

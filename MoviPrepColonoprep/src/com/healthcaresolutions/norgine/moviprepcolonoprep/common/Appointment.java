@@ -6,6 +6,7 @@ package com.healthcaresolutions.norgine.moviprepcolonoprep.common;
  */
 public class Appointment {
 
+	private int id;
 	private String hospital;
 	private int year;
 	private int month;
@@ -13,6 +14,12 @@ public class Appointment {
 	private int hour;
 	private int min;
 	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id){
+		this.id = id;
+	}
 	public String getHospital() {
 		return hospital;
 	}

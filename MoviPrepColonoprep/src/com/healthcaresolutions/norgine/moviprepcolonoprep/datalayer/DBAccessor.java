@@ -13,39 +13,52 @@ import com.healthcaresolutions.norgine.moviprepcolonoprep.common.UserNotificatio
 public interface DBAccessor {
 
 	/**
-	 * Speichert einen Termin in die DB
+	 * Speichert einen Termin in die DB.
 	 * @param a der Termin
+	 * @return gibt an ob die Aktion erfolgreich war oder nicht
 	 * @throws Exception falls ein DB Problem auftritt
 	 */
-	public void insertAppointment(Appointment a) throws Exception;
+	public boolean insertAppointment(Appointment a) throws Exception;
+	
+	/**
+	 * Gibt einen Termin aus der DB zurück
+	 * @return einen Termin
+	 * @throws Exception falls ein DB Problem auftritt
+	 */
+	public Appointment getAppointment() throws Exception;
+	
 	
 	/**
 	 * Aktualisiert einen Termin in der DB
 	 * @param a der Termin
+	 * @return gibt an ob die Aktion erfolgreich war oder nicht
 	 * @throws Exception falls ein DB Problem auftritt
 	 */
-	public void updateAppointment(Appointment a) throws Exception;
+	public boolean updateAppointment(Appointment a) throws Exception;
 	
 	/**
 	 * Löscht einen Termin aus der DB
+	 * @return gibt an ob die Aktion erfolgreich war oder nicht
 	 * @throws Exception falls ein DB Problem auftritt
 	 */
-	public void deleteAppointment() throws Exception;
+	public boolean deleteAppointment() throws Exception;
 	
 	
 	/**
 	 * Speichert Patientendaten in die DB
 	 * @param p die Patientendaten
+	 * @return gibt an ob die Aktion erfolgreich war oder nicht
 	 * @throws Exception falls ein DB Problem auftritt
 	 */
-	public void insertPatientInformation(Patient p) throws Exception;
+	public boolean insertPatientInformation(Patient p) throws Exception;
 	
 	/**
 	 * Aktualisiert die Patienteninfos in der DB
 	 * @param p die Patientendaten
+	 * @return gibt an ob die Aktion erfolgreich war oder nicht
 	 * @throws Exception falls ein DB Problem auftritt
 	 */
-	public void updatePatientInformation(Patient p) throws Exception;
+	public boolean updatePatientInformation(Patient p) throws Exception;
 	
 	/**
 	 * Liefert alle Patientendaten aus der DB
@@ -57,16 +70,18 @@ public interface DBAccessor {
 	/**
 	 * Speichert eine Benachrichtigung in die DB
 	 * @param n die zu speichernde Benachrichtigung
+	 * @return gibt an ob die Aktion erfolgreich war oder nicht
 	 * @throws Exception falls ein DB Problem auftritt
 	 */
-	public void insertNotification(UserNotification n) throws Exception;
+	public boolean insertNotification(UserNotification n) throws Exception;
 	
 	/**
 	 * Aktualisiert eine Benachrichtigung in der DB
 	 * @param n die zu speichernde Benachrichtigung
+	 * @return gibt an ob die Aktion erfolgreich war oder nicht
 	 * @throws Exception falls ein DB Problem auftritt
 	 */
-	public void updateNotification(UserNotification n) throws Exception;
+	public boolean updateNotification(UserNotification n) throws Exception;
 	
 	/**
 	 * Gibt Benachrichtigungen aus der DB zurück
@@ -79,9 +94,10 @@ public interface DBAccessor {
 	/**
 	 * Speichert den Ablaufplan in die Datenbank
 	 * @param workflow der Ablaufplan
+	 * @return gibt an ob die Aktion erfolgreich war oder nicht
 	 * @throws Exception falls ein DB Problem auftritt
 	 */
-	public void saveWorkflow(ArrayList<Step> workflow) throws Exception;
+	public boolean saveWorkflow(ArrayList<Step> workflow) throws Exception;
 	
 	/**
 	 * Gibt den gesamten Ablaufplan aus der DB zurück
