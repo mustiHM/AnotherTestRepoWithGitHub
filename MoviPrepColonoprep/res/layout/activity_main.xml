@@ -18,8 +18,8 @@
         android:id="@+id/btnAdministrateAppointment"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView1"
-        android:layout_below="@+id/textView1"
+        android:layout_alignLeft="@+id/lblWelcome"
+        android:layout_below="@+id/lblWelcome"
         android:layout_marginTop="106dp"
         android:text="@string/administrateAppointment" />
 
@@ -27,49 +27,49 @@
         android:id="@+id/btnPreparation"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView1"
-        android:layout_below="@+id/button1"
+        android:layout_alignLeft="@+id/lblWelcome"
+        android:layout_below="@+id/btnAdministrateAppointment"
         android:text="@string/preparation" />
 
     <Button
         android:id="@+id/btnFoodList"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView1"
-        android:layout_below="@+id/button2"
+        android:layout_alignLeft="@+id/lblWelcome"
+        android:layout_below="@+id/btnPreparation"
         android:text="@string/foodList" />
 
     <Button
         android:id="@+id/btnCheckList"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView1"
-        android:layout_below="@+id/button3"
+        android:layout_alignLeft="@+id/lblWelcome"
+        android:layout_below="@+id/btnFoodList"
         android:text="@string/checklist" />
 
     <Button
         android:id="@+id/btnSettings"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView1"
-        android:layout_below="@+id/button4"
+        android:layout_alignLeft="@+id/lblWelcome"
+        android:layout_below="@+id/btnCheckList"
         android:text="@string/settings" />
 
     <Button
         android:id="@+id/btnInfo"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView1"
-        android:layout_below="@+id/button5"
+        android:layout_alignLeft="@+id/lblWelcome"
+        android:layout_below="@+id/btnSettings"
         android:text="@string/info" />
 
     <ImageView
         android:id="@+id/imgLogo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/button1"
-        android:layout_marginBottom="76dp"
-        android:layout_toRightOf="@+id/textView1"
+        android:layout_below="@+id/lblWelcome"
+        android:layout_marginTop="31dp"
+        android:layout_toRightOf="@+id/lblWelcome"
         android:src="@drawable/moviprep_5" />
 
 </RelativeLayout>
