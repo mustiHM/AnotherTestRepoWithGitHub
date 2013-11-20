@@ -3,6 +3,12 @@
 
     <string name="app_name">MoviPrepColonoprep</string>
     <string name="action_settings">Settings</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="welcome">Herzlich Willkommen!</string>
+    <string name="administrateAppointment">Termin verwalten</string>
+    <string name="preparation">Vorbereitung</string>
+    <string name="foodList">Ernährungshinweise</string>
+    <string name="checklist">Untersuchungs-Checkliste</string>
+    <string name="settings">Einstellung</string>
+    <string name="info">Info</string>
 
 </resources>
