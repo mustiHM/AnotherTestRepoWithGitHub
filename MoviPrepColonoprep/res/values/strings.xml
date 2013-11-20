@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">MoviPrepColonoprep</string>
+    <string name="app_name">Colonoprep</string>
     <string name="action_settings">Settings</string>
     <string name="welcome">Herzlich Willkommen!</string>
     <string name="administrateAppointment">Termin verwalten</string>
@@ -10,5 +10,13 @@
     <string name="checklist">Untersuchungs-Checkliste</string>
     <string name="settings">Einstellung</string>
     <string name="info">Info</string>
+    <string name="title_activity_administrate_appointment">Terminverwaltung</string>
+   	<string name="addAppointment">Termin eintragen</string>
+  	<string name="changeAppointment">Termin ändern</string>
+  	<string name="deleteAppointment">Termin löschen</string>
+  	<string name="preparationOverview">Überblick</string>
+  	<string name="nextStep">nächster Schritt</string>
+  	<string name="title_activity_preparation">Vorbereitung</string>
+  	<string name="title_addAppointment">Termin einragen</string>
 
 </resources>

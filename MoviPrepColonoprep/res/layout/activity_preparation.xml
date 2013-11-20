@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/RelativeLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/lblPreparation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="22dp"
+        android:layout_marginTop="26dp"
+        android:text="@string/title_activity_preparation" />
+
+    <Button
+        android:id="@+id/btnOverview"
+        android:layout_width="152dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="@string/preparationOverview" />
+
+    <Button
+        android:id="@+id/btnNextStep"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/btnOverview"
+        android:layout_below="@+id/btnOverview"
+        android:text="@string/nextStep" />
+
+        <ImageView
+        android:id="@+id/imgLogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lblPreparation"
+        android:layout_marginTop="31dp"
+        android:layout_toRightOf="@+id/lblPreparation"
+        android:src="@drawable/moviprep_5" />
+    
+</RelativeLayout>
