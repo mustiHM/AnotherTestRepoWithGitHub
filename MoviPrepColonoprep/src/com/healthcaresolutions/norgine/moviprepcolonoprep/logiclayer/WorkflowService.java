@@ -5,6 +5,8 @@ import java.util.ArrayList;
 
 import com.healthcaresolutions.norgine.moviprepcolonoprep.common.Appointment;
 import com.healthcaresolutions.norgine.moviprepcolonoprep.common.Step;
+import com.healthcaresolutions.norgine.moviprepcolonoprep.common.exceptions.DBAccessException;
+import com.healthcaresolutions.norgine.moviprepcolonoprep.common.exceptions.NoConfigFoundException;
 
 /**
  * Bietet einen Dienst, der sich um die gesamten Ablauf der App kümmert.
@@ -13,26 +15,27 @@ import com.healthcaresolutions.norgine.moviprepcolonoprep.common.Step;
 public interface WorkflowService {
 	
 	/**
-	 * Generiert anhand des Untersuchungstermins einen vollständigen Ablaufplan.
-	 * Wird kein Termin mitgegeben, wird ein Ablaufplan ohne Zeitangaben erstellt.
-	 * Wurde ein Termin gespeichert, werden die Ablaufschritte aus der DB mit einem Zeitstempel versehen.
+	 * Generiert einen vollständigen Ablaufplan ohne Zeitangaben und speichert diesen in die DB.
 	 * Der Ablaufplan selber wird vom ConfigReader vorher eingelesen.
-	 * @param a der Untersuchungstermin
+	 * @throws NoConfigFoundException falls keine Config gefunden wird.
+	 * @throws DBAccessException falls es Probleme mit der DB gibt.
 	 */
-	public void generateWorkflow(Appointment a);
+	public void generateWorkflow() throws NoConfigFoundException, DBAccessException;
+	
+	/**
+	 * Aktualisiert alle Ablaufschritte aus der DB mit den passenden Zeitstempeln.
+	 * @param a der Untersuchungstermin
+	 * @throws NoConfigFoundException falls keine Config gefunden wird.
+	 * @throws DBAccessException falls es Probleme mit der DB gibt.
+	 */
+	public void updateWorklow(Appointment a) throws NoConfigFoundException, DBAccessException;
 	
 	/**
 	 * Liefert den gesamten Ablaufplan.
 	 * @return Ablaufplan in Form einer ArrayList
+	 * @throws DBAccessException falls es Probleme mit der DB gibt.
 	 */
-	public ArrayList<Step> getAllSteps();
+	public ArrayList<Step> getAllSteps() throws DBAccessException;
 	
-	/**
-	 * Liefert den nächsten Vorbereitungsschritt.
-	 * Bekommt von der DB den gesamten Plan und muss selbstständig den nächsten wählen.
-	 * @param t der aktuelle Zeitstempel, kann mit new Timestamp(System.currentTimeMillis() ermittelt werden
-	 * @return der nächste Vorbereitungsschritt
-	 */
-	public Step getNextStep(Timestamp t);
 
 }
