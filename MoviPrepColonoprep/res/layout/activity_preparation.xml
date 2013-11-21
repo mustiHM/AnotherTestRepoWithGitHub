@@ -14,22 +14,18 @@
         android:layout_marginLeft="22dp"
         android:layout_marginTop="26dp"
         android:text="@string/title_activity_preparation" />
+        "
 
     <Button
         android:id="@+id/btnOverview"
-        android:layout_width="152dp"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:text="@string/preparationOverview" />
-
-    <Button
-        android:id="@+id/btnNextStep"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/btnOverview"
-        android:layout_below="@+id/btnOverview"
-        android:text="@string/nextStep" />
+        android:background="@drawable/bl"
+        android:text="@string/preparationOverview"
+        android:textColor="@android:color/white"
+        android:textStyle="bold" />
 
         <ImageView
         android:id="@+id/imgLogo"
@@ -39,5 +35,18 @@
         android:layout_marginTop="31dp"
         android:layout_toRightOf="@+id/lblPreparation"
         android:src="@drawable/moviprep_5" />
+
+        <Button
+            android:id="@+id/btnNextStep"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/btnOverview"
+            android:background="@drawable/bl"
+            android:text="@string/nextStep"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:layout_marginTop="10px" />
     
 </RelativeLayout>

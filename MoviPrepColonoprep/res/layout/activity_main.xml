@@ -12,16 +12,7 @@
         android:id="@+id/lblWelcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/welcome" />
-
-    <Button
-        android:id="@+id/btnAdministrateAppointment"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/lblWelcome"
-        android:layout_below="@+id/lblWelcome"
-        android:layout_marginTop="106dp"
-        android:text="@string/administrateAppointment" />
+        android:text="@string/welcome" />"
 
     <Button
         android:id="@+id/btnPreparation"
@@ -29,7 +20,11 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/lblWelcome"
         android:layout_below="@+id/btnAdministrateAppointment"
-        android:text="@string/preparation" />
+        android:text="@string/preparation"
+        android:textColor="@android:color/white" 
+	  	android:textStyle="bold" 
+	  	android:background="@drawable/bl"
+	  	android:layout_marginTop="10px" />
 
     <Button
         android:id="@+id/btnFoodList"
@@ -37,7 +32,11 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/lblWelcome"
         android:layout_below="@+id/btnPreparation"
-        android:text="@string/foodList" />
+        android:layout_marginTop="10px"
+        android:text="@string/foodList"
+        android:textColor="@android:color/white" 
+	  	android:textStyle="bold" 
+		android:background="@drawable/bl" />
 
     <Button
         android:id="@+id/btnCheckList"
@@ -45,23 +44,11 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/lblWelcome"
         android:layout_below="@+id/btnFoodList"
-        android:text="@string/checklist" />
-
-    <Button
-        android:id="@+id/btnSettings"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/lblWelcome"
-        android:layout_below="@+id/btnCheckList"
-        android:text="@string/settings" />
-
-    <Button
-        android:id="@+id/btnInfo"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/lblWelcome"
-        android:layout_below="@+id/btnSettings"
-        android:text="@string/info" />
+        android:text="@string/checklist" 
+        android:textColor="@android:color/white" 
+	  	android:textStyle="bold"
+		android:background="@drawable/bl" 
+		android:layout_marginTop="10px"/>
 
     <ImageView
         android:id="@+id/imgLogo"
@@ -71,5 +58,42 @@
         android:layout_marginTop="31dp"
         android:layout_toRightOf="@+id/lblWelcome"
         android:src="@drawable/moviprep_5" />
+
+    <Button
+        android:id="@+id/btnAdministrateAppointment"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/imgLogo"
+        android:layout_below="@+id/imgLogo"
+        android:background="@drawable/bl"
+        android:text="@string/administrateAppointment"
+        android:textColor="@android:color/white"
+        android:textStyle="bold" 
+        android:layout_marginTop="10px"/>
+
+    <Button
+        android:id="@+id/btnInfo"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/lblWelcome"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/btnSettings"
+        android:background="@drawable/bl"
+        android:text="@string/info"
+        android:textColor="@android:color/white"
+        android:textStyle="bold" 
+        android:layout_marginTop="10px"/>
+
+    <Button
+        android:id="@+id/btnSettings"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnCheckList"
+        android:layout_alignLeft="@+id/btnWelcome"
+        android:background="@drawable/bl"
+        android:text="@string/settings"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:layout_marginTop="10px" />
 
 </RelativeLayout>
