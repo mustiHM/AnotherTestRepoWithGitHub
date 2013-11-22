@@ -15,14 +15,12 @@ public class ConfigReaderImpl implements ConfigReader {
 
 	@Override
 	public ArrayList<Step> getWorkflowSteps() {
-		// TODO Auto-generated method stub
-		return null;
+		return new ProcedureParserImpl().getSteps();
 	}
 
 	@Override
 	public Medicine getMedicine() {
-		// TODO Auto-generated method stub
-		return null;
+		return new ProductParserImpl().getMedicine();
 	}
 
 }

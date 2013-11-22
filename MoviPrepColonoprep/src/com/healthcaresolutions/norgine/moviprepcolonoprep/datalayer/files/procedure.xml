@@ -1,0 +1,19 @@
+<procedure>
+    <step>
+        <daysbefore>1</daysbefore>
+        <time>07:00</time>
+        <action>diet</action>
+    </step>
+    <step>
+        <daysbefore>1</daysbefore>
+        <time>17:00</time>
+        <action>drink</action>
+        <amount>1L</amount>
+    </step>
+    <step>
+        <daysbefore>0</daysbefore>
+        <time>07:00</time>
+        <action>drink</action>
+        <amount>1L</amount>
+    </step>
+</procedure>
