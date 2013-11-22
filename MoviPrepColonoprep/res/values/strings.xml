@@ -18,5 +18,8 @@
   	<string name="nextStep">nächster Schritt</string>
   	<string name="title_activity_preparation">Vorbereitung</string>
   	<string name="title_addAppointment">Termin einragen</string>
+  	<string name="title_info">Info</string>
+  	<string name="medicineInfo">Medikamenteninformation</string>
+  	<string name="imprint">Impressum</string>
 
 </resources>
