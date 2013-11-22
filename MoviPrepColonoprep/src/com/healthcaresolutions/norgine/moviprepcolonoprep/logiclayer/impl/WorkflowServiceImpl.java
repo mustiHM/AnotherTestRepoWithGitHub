@@ -62,6 +62,8 @@ public class WorkflowServiceImpl extends Thread implements WorkflowService {
 			step.setTimestamp(new Timestamp(a.getYear(), a.getMonth(), a.getDay()-step.getDaysBefore(), hour, min, 0, 0));
 		}
 		
+		db.saveWorkflow(steps);
+		
 	}
 
 }

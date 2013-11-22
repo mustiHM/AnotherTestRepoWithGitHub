@@ -24,7 +24,7 @@
         android:text="@string/medicineInfo"
         android:textColor="@android:color/white"
         android:textStyle="bold"
-        android:Layout_marginTop="10px" />
+        android:layout_marginTop="10px" />
 
     <ImageView
         android:id="@+id/imgLogo"
@@ -42,8 +42,7 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/btnMedicineInfo"
         android:layout_below="@+id/btnMedicineInfo"
-
-        android:Layout_marginTop="10px"
+        android:layout_marginTop="10px"
         android:background="@drawable/bl"
         android:text="@string/imprint"
         android:textColor="@android:color/white"
