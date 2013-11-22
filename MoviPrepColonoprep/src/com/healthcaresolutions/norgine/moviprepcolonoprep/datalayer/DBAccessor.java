@@ -108,4 +108,10 @@ public interface DBAccessor {
 	 */
 	public ArrayList<Step> getWorkflow() throws DBAccessException;
 	
+	/**
+	 * Löscht den Ablauf der in der DB gespeichert ist.
+	 * @throws DBAccessException falls ein DB Problem auftritt
+	 */
+	public void deleteWorkflow() throws DBAccessException;
+	
 }

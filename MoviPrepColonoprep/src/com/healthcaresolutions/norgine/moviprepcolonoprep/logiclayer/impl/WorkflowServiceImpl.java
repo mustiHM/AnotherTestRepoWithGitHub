@@ -44,13 +44,23 @@ public class WorkflowServiceImpl extends Thread implements WorkflowService {
 
 	@Override
 	public void updateWorklow(Appointment a) throws DBAccessException {
-		// Ablaufplan von DB laden
-		steps = db.getWorkflow();
-		
 		// Ablaufplan von der Config laden
-		ArrayList<Step> configSteps = cr.getWorkflowSteps();
+		steps = cr.getWorkflowSteps();
 		
-		// TODO Anhand der Zeitdaten aus der Config (configSteps), die Objekte der DB (steps) aktualisieren 
+		// TODO Anhand des Termins die Objekte aus steps aktualisieren 
+		
+		// da es bei Updates der App passieren kann, dass der Ablaufplan sich ändert, müssen vorherige Ablaufpläne gelöscht werden
+		db.deleteWorkflow();
+		
+		for (Step step : steps) {
+			int seperator = step.getTime().indexOf(":");
+			String s = step.getTime().substring(0, seperator-1); // -1, damit das ":" nicht dabei ist
+			int hour = Integer.parseInt(s);
+			s = step.getTime().substring(seperator+1); // +1, damit das ":" nicht dabei ist
+			int min = Integer.parseInt(s);
+			// dieser Konstruktor ist zwar veraltet, aber für unseren Zweck perfekt
+			step.setTimestamp(new Timestamp(a.getYear(), a.getMonth(), a.getDay()-step.getDaysBefore(), hour, min, 0, 0));
+		}
 		
 	}
 
