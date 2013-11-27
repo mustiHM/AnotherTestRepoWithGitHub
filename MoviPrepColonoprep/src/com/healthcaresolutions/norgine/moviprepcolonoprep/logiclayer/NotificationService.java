@@ -13,7 +13,7 @@ public interface NotificationService {
 	 * Schickt eine Benachrichtigung an den Nutzer
 	 * @param n die Benachrichtigung die verschickt werden soll
 	 */
-	public void notificateUser(UserNotification n);
+	public void notifyUser(UserNotification n);
 	
 	
 	/**

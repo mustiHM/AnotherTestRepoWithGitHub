@@ -1,5 +1,10 @@
 package com.healthcaresolutions.norgine.moviprepcolonoprep.common;
 
+import java.io.Serializable;
+
+import android.os.Parcel;
+import android.os.Parcelable;
+
 /**
  * Repräsentiert eine Benachrichtigung an den Benutzer
  */
@@ -7,7 +12,7 @@ public class UserNotification {
 
 	private int id;
 	private String title;
-	private String describtion;
+	private String description;
 	private long time; // siehe http://developer.android.com/reference/android/support/v4/app/NotificationCompat.Builder.html#setWhen%28long%29
 	private Class<?> classLink; // die Klasse auf die die Benachrichtigung weiterleitet
 	private String link; // das gleiche wie classLink, nur als String -> wichtig für DB
@@ -26,10 +31,10 @@ public class UserNotification {
 		this.title = title;
 	}
 	public String getDescribtion() {
-		return describtion;
+		return description;
 	}
-	public void setDescribtion(String describtion) {
-		this.describtion = describtion;
+	public void setDescribtion(String description) {
+		this.description = description;
 	}
 	public long getTime() {
 		return time;
@@ -55,6 +60,4 @@ public class UserNotification {
 	public void setStatus(Status status) {
 		this.status = status;
 	}
-	
-	
 }
