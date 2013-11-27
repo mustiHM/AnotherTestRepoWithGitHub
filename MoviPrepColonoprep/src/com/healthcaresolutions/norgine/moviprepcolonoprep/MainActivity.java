@@ -4,10 +4,18 @@ package com.healthcaresolutions.norgine.moviprepcolonoprep;
 import com.healthcaresolutions.norgine.moviprepcolonoprep.logiclayer.WorkflowService;
 import com.healthcaresolutions.norgine.moviprepcolonoprep.logiclayer.impl.WorkflowServiceImpl;
 
+import com.healthcaresolutions.norgine.moviprepcolonoprep.logiclayer.NotificationService;
+
 import android.os.Bundle;
+import android.os.SystemClock;
+import android.preference.PreferenceManager;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -50,7 +58,7 @@ public class MainActivity extends Activity {
 		
 		
 	}
-
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.

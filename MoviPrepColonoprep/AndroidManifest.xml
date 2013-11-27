@@ -8,6 +8,8 @@
         android:minSdkVersion="8"
         android:targetSdkVersion="17" />
 
+
+    
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -26,6 +28,6 @@
             android:name="com.healthcaresolutions.norgine.moviprepcolonoprep.AdministrateAppointmentActivity"
             android:label="@string/title_activity_administrate_appointment" >
         </activity>
-    </application>
-
+    	
+    </application>	
 </manifest>
