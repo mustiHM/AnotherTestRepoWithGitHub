@@ -12,7 +12,7 @@ import com.healthcaresolutions.norgine.moviprepcolonoprep.common.exceptions.NoCo
  * Bietet einen Dienst, der sich um die gesamten Ablauf der App kümmert.
  * Muss thread-ähnlich implementiert werden, zwecks Parallellauffähigkeit.
  */
-public interface WorkflowService {
+public interface WorkflowService extends Runnable{
 	
 	/**
 	 * Generiert einen vollständigen Ablaufplan ohne Zeitangaben und speichert diesen in die DB.

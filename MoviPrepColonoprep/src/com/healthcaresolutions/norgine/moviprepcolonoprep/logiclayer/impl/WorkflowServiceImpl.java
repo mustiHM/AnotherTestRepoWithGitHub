@@ -11,12 +11,40 @@ import com.healthcaresolutions.norgine.moviprepcolonoprep.datalayer.ConfigReader
 import com.healthcaresolutions.norgine.moviprepcolonoprep.datalayer.DBAccessor;
 import com.healthcaresolutions.norgine.moviprepcolonoprep.logiclayer.WorkflowService;
 
-public class WorkflowServiceImpl extends Thread implements WorkflowService {
+public class WorkflowServiceImpl implements WorkflowService {
 
 	private ConfigReader cr;
 	private DBAccessor db;
 	private ArrayList<Step> steps;
+	private Appointment ap;
 	
+	
+	public WorkflowServiceImpl(Appointment appointment){
+		this.ap = appointment;
+	}
+	
+	public void run(){
+		if (ap==null){
+			try {
+				generateWorkflow();
+			} catch (NoConfigFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (DBAccessException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		
+		}
+		else {
+			try {
+				updateWorklow(ap);
+			} catch (DBAccessException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
 	@Override
 	public void generateWorkflow() throws NoConfigFoundException, DBAccessException{
 		
