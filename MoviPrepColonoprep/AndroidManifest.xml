@@ -40,4 +40,14 @@
         </activity>
     </application>
 
+        <activity
+            android:name="com.healthcaresolutions.norgine.moviprepcolonoprep.Medicine_info"
+            android:label="@string/title_activity_medicine_info" >
+        </activity>
+        <activity
+            android:name="com.healthcaresolutions.norgine.moviprepcolonoprep.Imprint"
+            android:label="@string/title_activity_imprint" >
+        </activity>
+    </application>
+
 </manifest>

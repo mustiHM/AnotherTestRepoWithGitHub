@@ -11,15 +11,31 @@
     <string name="settings">Einstellung</string>
     <string name="info">Info</string>
     <string name="title_activity_administrate_appointment">Terminverwaltung</string>
-   	<string name="addAppointment">Termin eintragen</string>
-  	<string name="changeAppointment">Termin ändern</string>
-  	<string name="deleteAppointment">Termin löschen</string>
-  	<string name="preparationOverview">Überblick</string>
-  	<string name="nextStep">nächster Schritt</string>
-  	<string name="title_activity_preparation">Vorbereitung</string>
-  	<string name="title_addAppointment">Termin einragen</string>
-  	<string name="title_info">Info</string>
-  	<string name="medicineInfo">Medikamenteninformation</string>
-  	<string name="imprint">Impressum</string>
-
+    <string name="addAppointment">Termin eintragen</string>
+    <string name="changeAppointment">Termin ändern</string>
+    <string name="deleteAppointment">Termin löschen</string>
+    <string name="preparationOverview">Überblick</string>
+    <string name="nextStep">Nächster Schritt</string>
+    <string name="title_activity_preparation">Vorbereitung</string>
+    <string name="title_addAppointment">Termin einragen</string>
+    <string name="title_info">Info</string>
+    <string name="medicineInfo">Medikamenten-information</string>
+    <string name="imprint">Impressum</string>
+    <string name="title_activity_overview">Überblick</string>
+    <string name="title_activity_medicine_info">Medikamenteninformation</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_imprint">Impressum</string>
+    <string name="imprint_text">Die Anwendung ist ein der Prototyp zum Referenzprojekt Colonoprep. Sie dient nur zu Demonstrationszwecken und darf nicht anderweitig eingesetzt werden. </string>
+	<string name="hs">Hochschule München</string>
+	<string name="company_name">Health Care Solutions</string>
+	<string name="street">Lothstraße 46</string>
+	<string name="zip_code">80797 München</string>
+	<string name="contact">Kontakt:</string>
+	<string name="medicine_name">Medikamentenname:</string>
+	<string name="medicine_description">Beschreibung:</string>
+	<string name="medicine_manufacturer">Hersteller:</string>
+	<string name="safe">Speichern</string>
+	
+	
+	
 </resources>
