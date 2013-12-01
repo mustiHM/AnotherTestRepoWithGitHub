@@ -16,6 +16,7 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -32,6 +33,7 @@ public class MainActivity extends Activity {
 	private WorkflowService ws;
 	private Thread thread;
 	private Context contextForListener;
+	//private ClickListener listener;
 	
 	
 	@Override
@@ -45,10 +47,15 @@ public class MainActivity extends Activity {
 		btnAdministrateAppointment = (Button) findViewById(R.id.btnAdministrateAppointment);
 		btnAdministrateAppointment.setOnClickListener(listener);
 		btnOverview = (Button) findViewById(R.id.btnOverview);
+		btnOverview.setOnClickListener(listener);
 		btnSettings = (Button) findViewById(R.id.btnSettings);
+		btnSettings.setOnClickListener(listener);
 		btnInfo = (Button) findViewById(R.id.btnInfo);
+		btnInfo.setOnClickListener(listener);
 		btnFoodList = (Button) findViewById(R.id.btnFoodList);
+		btnFoodList.setOnClickListener(listener);
 		btnChecklist = (Button) findViewById(R.id.btnCheckList);
+		btnChecklist.setOnClickListener(listener);
 		
 		// Einlesen der Konfig beginnen
 		
@@ -56,6 +63,7 @@ public class MainActivity extends Activity {
 		thread = new Thread(ws);
 		thread.start();
 		
+		Log.i(this.getLocalClassName(), "Main gebaut");
 		
 	}
 	

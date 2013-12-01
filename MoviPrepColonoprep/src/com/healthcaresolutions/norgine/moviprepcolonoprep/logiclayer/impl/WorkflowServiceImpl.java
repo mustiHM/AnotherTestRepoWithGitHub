@@ -9,6 +9,8 @@ import com.healthcaresolutions.norgine.moviprepcolonoprep.common.exceptions.DBAc
 import com.healthcaresolutions.norgine.moviprepcolonoprep.common.exceptions.NoConfigFoundException;
 import com.healthcaresolutions.norgine.moviprepcolonoprep.datalayer.ConfigReader;
 import com.healthcaresolutions.norgine.moviprepcolonoprep.datalayer.DBAccessor;
+import com.healthcaresolutions.norgine.moviprepcolonoprep.datalayer.impl.ConfigReaderImpl;
+import com.healthcaresolutions.norgine.moviprepcolonoprep.datalayer.impl.DBAccessorImpl;
 import com.healthcaresolutions.norgine.moviprepcolonoprep.logiclayer.WorkflowService;
 
 public class WorkflowServiceImpl implements WorkflowService {
@@ -21,6 +23,8 @@ public class WorkflowServiceImpl implements WorkflowService {
 	
 	public WorkflowServiceImpl(Appointment appointment){
 		this.ap = appointment;
+		cr = new ConfigReaderImpl();
+		db = new DBAccessorImpl();
 	}
 	
 	public void run(){
