@@ -32,5 +32,14 @@
             android:name="com.healthcaresolutions.norgine.moviprepcolonoprep.AddAppointment"
             android:label="@string/addAppointment" >
         </activity>
-    </application>	
+        <activity
+            android:name="com.healthcaresolutions.norgine.moviprepcolonoprep.Medicine_info"
+            android:label="@string/title_info" >
+        </activity>
+        <activity
+            android:name="com.healthcaresolutions.norgine.moviprepcolonoprep.Imprint"
+            android:label="@string/title_info" >
+        </activity>
+    </application>
+
 </manifest>
