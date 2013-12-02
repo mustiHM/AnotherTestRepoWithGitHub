@@ -336,7 +336,7 @@ public class DBAccessorImpl extends SQLiteOpenHelper implements DBAccessor {
 				Log.i(TAG, "patienten tabelle erstellt");
 				
 				db.execSQL("CREATE TABLE appointments (" +
-						"id INTEGER PRIMARY,"+
+						"id INTEGER PRIMARY KEY,"+
 						"hospital TEXT," +
 						"year INTEGER," +
 						"month INTEGER," +
