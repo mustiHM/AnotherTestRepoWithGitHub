@@ -26,7 +26,7 @@ public interface DBAccessor {
 	 * @return einen Termin
 	 * @throws DBAccessException falls ein DB Problem auftritt
 	 */
-	public Appointment getAppointment() throws DBAccessException;
+	public Appointment getAppointment(int id) throws DBAccessException;
 	
 	
 	/**
@@ -42,7 +42,7 @@ public interface DBAccessor {
 	 * @return gibt an ob die Aktion erfolgreich war oder nicht
 	 * @throws DBAccessException falls ein DB Problem auftritt
 	 */
-	public boolean deleteAppointment() throws DBAccessException;
+	public boolean deleteAppointment(Appointment a) throws DBAccessException;
 	
 	
 	/**
@@ -66,7 +66,7 @@ public interface DBAccessor {
 	 * @return gespeicherte Patientendaten
 	 * @throws DBAccessException falls ein DB Problem auftritt
 	 */
-	public Patient getPatientInformation() throws DBAccessException;
+	public Patient getPatientInformation(int id) throws DBAccessException;
 	
 	/**
 	 * Speichert eine Benachrichtigung in die DB
