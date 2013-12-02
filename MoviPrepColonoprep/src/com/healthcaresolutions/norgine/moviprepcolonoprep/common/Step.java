@@ -14,6 +14,14 @@ public class Step {
 		private String action;
 		private String amount;
 		
+		private Status status;
+		
+		public Status getStatus() {
+			return status;
+		}
+		public void setStatus(Status status) {
+			this.status = status;
+		}
 		public int getDaysBefore() {
 			return daysBefore;
 		}

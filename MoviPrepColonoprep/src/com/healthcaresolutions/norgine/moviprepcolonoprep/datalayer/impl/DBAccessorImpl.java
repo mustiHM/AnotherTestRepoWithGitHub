@@ -174,6 +174,14 @@ public class DBAccessorImpl extends SQLiteOpenHelper implements DBAccessor {
 			insertValues.put("description", n.getDescribtion());
 			insertValues.put("time", n.getTime());
 			insertValues.put("link", n.getLink());
+			if (n.getStatus() == Status.DONE) 
+			{
+				insertValues.put("status", 1);
+			}
+			else
+			{
+				insertValues.put("status",0);
+			}
 			getWritableDatabase().insert("notifications", null, insertValues);
 		}catch(Exception ex)
 		{
@@ -192,6 +200,14 @@ public class DBAccessorImpl extends SQLiteOpenHelper implements DBAccessor {
 			updateValues.put("description", n.getDescribtion());
 			updateValues.put("time", n.getTime());
 			updateValues.put("link", n.getLink());
+			if (n.getStatus() == Status.DONE) 
+			{
+				updateValues.put("status", 1);
+			}
+			else
+			{
+				updateValues.put("status",0);
+			}
 			getWritableDatabase().update("notifications", updateValues, "id" + "=" + n.getId(), null);
 		}catch(Exception ex)
 		{
@@ -220,7 +236,14 @@ public class DBAccessorImpl extends SQLiteOpenHelper implements DBAccessor {
 					a.setDescribtion(c.getString(c.getColumnIndex("description")));
 					a.setTime(c.getInt(c.getColumnIndex("time")));
 					a.setLink(c.getString(c.getColumnIndex("link")));
-					
+					if (c.getInt(c.getColumnIndex("status")) == 1)
+					{
+						a.setStatus(Status.DONE);
+					}
+					else
+					{
+						a.setStatus(Status.OPEN);
+					}
 					n.add(a);
 					
 					if(c.moveToNext())
@@ -239,6 +262,7 @@ public class DBAccessorImpl extends SQLiteOpenHelper implements DBAccessor {
 	@Override
 	public boolean saveWorkflow(ArrayList<Step> workflow)
 			throws DBAccessException {
+		deleteWorkflow();
 		for (Step step: workflow)
 		{
 			try
@@ -249,6 +273,14 @@ public class DBAccessorImpl extends SQLiteOpenHelper implements DBAccessor {
 				insertValues.put("time", step.getTime());
 				insertValues.put("days", step.getDaysBefore());
 				insertValues.put("timestamp", step.getTimeStamp().toString());
+				if (step.getStatus() == Status.DONE) 
+				{
+					insertValues.put("status", 1);
+				}
+				else
+				{
+					insertValues.put("status",0);
+				}
 				getWritableDatabase().insert("workflow", null, insertValues);
 			}catch(Exception ex)
 			{
@@ -283,7 +315,8 @@ public class DBAccessorImpl extends SQLiteOpenHelper implements DBAccessor {
 						"amount TEXT,"+
 						"time TEXT,"+
 						"days TEXT,"+
-						"timestamp TEXT);");
+						"timestamp TEXT,"+
+						"status INTEGER DEFAULT 0);");
 						
 				Log.i(TAG, "workflows tabelle erstellt");
 				
@@ -319,7 +352,7 @@ public class DBAccessorImpl extends SQLiteOpenHelper implements DBAccessor {
 						"description TEXT," +
 						"time INTEGER," +
 						"link TEXT,"+
-						"open INTEGER DEFAULT 1);");
+						"open INTEGER DEFAULT 0);");
 				
 				Log.i(TAG, "notifications tabelle erstellt");
 		
