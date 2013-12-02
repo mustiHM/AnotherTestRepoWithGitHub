@@ -24,10 +24,10 @@ public class AdministrateAppointmentActivity extends Activity {
 		setContentView(R.layout.activity_administrate_appointment);
 		
 		contextForListener = this;
-		//listener = new ClickListener();
+		listener = new ClickListener();
 		
 		btnAddAppointment = (Button) findViewById(R.id.btnAddAppointment);
-		//btnAddAppointment.setOnClickListener(listener);
+		btnAddAppointment.setOnClickListener(listener);
 		btnChangeAppointment = (Button) findViewById(R.id.btnChangeAppointment);
 		btnDeleteAppointment = (Button) findViewById(R.id.btnDeleteAppointment);
 		
