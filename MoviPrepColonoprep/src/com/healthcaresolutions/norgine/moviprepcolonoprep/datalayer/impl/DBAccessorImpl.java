@@ -47,17 +47,24 @@ public class DBAccessorImpl extends SQLiteOpenHelper implements DBAccessor {
 	}
 
 	@Override
-	//TODO HOW DOES THIS WORK????
 	// Parameter ID entfernt, da es nur einen einzigen Appointment in der DB gibt
 	public Appointment getAppointment() throws DBAccessException {
 		Appointment a  = null;
 		try{
 			// hier werden alle Spalten der DB Tabelle angegeben
-			String[] dbColumns = new String[]{"id as _id", "hospital", "year", "month", "day", "hour", "min"};
+			String[] dbColumns = new String[]{"id", "hospital", "year", "month", "day", "hour", "min"};
 			// die Methode query bekommt als ersten Parameter die Tabelle, dann die Spalten von oben, dann ein mögliches where statement und den rest null objekte, da keine sortierung wichtig
 			Cursor c = getReadableDatabase().query("appointments", dbColumns, null, null, null, null, null, null);
 			if(c.getCount()>0){
-				String x = null;
+				c.moveToFirst();
+				a = new Appointment();
+				a.setId(c.getInt(c.getColumnIndex("id")));
+				a.setHospital(c.getString(c.getColumnIndex("hospital")));
+				a.setYear(c.getInt(c.getColumnIndex("year")));
+				a.setMonth(c.getInt(c.getColumnIndex("month")));
+				a.setDay(c.getInt(c.getColumnIndex("day")));
+				a.setHour(c.getInt(c.getColumnIndex("hour")));
+				a.setMin(c.getInt(c.getColumnIndex("min")));
 			}
 		}catch(Exception ex)
 		{
@@ -135,8 +142,25 @@ public class DBAccessorImpl extends SQLiteOpenHelper implements DBAccessor {
 
 	@Override
 	public Patient getPatientInformation(int id) throws DBAccessException {
-		// TODO Auto-generated method stub
-		return null;
+		Patient a  = null;
+		try{
+			// hier werden alle Spalten der DB Tabelle angegeben
+			String[] dbColumns = new String[]{"id", "age", "country", "city"};
+			// die Methode query bekommt als ersten Parameter die Tabelle, dann die Spalten von oben, dann ein mögliches where statement und den rest null objekte, da keine sortierung wichtig
+			Cursor c = getReadableDatabase().query("patients", dbColumns, "id=" + id, null, null, null, null, null);
+			if(c.getCount()>0){
+				c.moveToFirst();
+				a = new Patient();
+				a.setId(c.getInt(c.getColumnIndex("id")));
+				a.setAge(c.getInt(c.getColumnIndex("age")));
+				a.setCountry(c.getString(c.getColumnIndex("country")));
+				a.setCity(c.getString(c.getColumnIndex("city")));
+			}
+		}catch(Exception ex)
+		{
+			throw new DBAccessException(ex.getMessage());
+		}
+		return a;
 	}
 
 	@Override
@@ -168,7 +192,7 @@ public class DBAccessorImpl extends SQLiteOpenHelper implements DBAccessor {
 			updateValues.put("description", n.getDescribtion());
 			updateValues.put("time", n.getTime());
 			updateValues.put("link", n.getLink());
-			getWritableDatabase().update("patients", updateValues, "id" + "=" + n.getId(), null);
+			getWritableDatabase().update("notifications", updateValues, "id" + "=" + n.getId(), null);
 		}catch(Exception ex)
 		{
 			throw new DBAccessException(ex.toString());
@@ -179,21 +203,72 @@ public class DBAccessorImpl extends SQLiteOpenHelper implements DBAccessor {
 	@Override
 	public ArrayList<UserNotification> getNotifications(boolean onlyOpen)
 			throws DBAccessException {
-		// TODO Get where open is set on 1!!
-		return null;
+		ArrayList<UserNotification> n  = new ArrayList<UserNotification>();
+		try{
+			// hier werden alle Spalten der DB Tabelle angegeben
+			String[] dbColumns = new String[]{"id", "title", "description", "time", "link", "open"};
+			// die Methode query bekommt als ersten Parameter die Tabelle, dann die Spalten von oben, dann ein mögliches where statement und den rest null objekte, da keine sortierung wichtig
+			String where = null;
+			if (onlyOpen) where = "open=1";
+			Cursor c = getReadableDatabase().query("notifications", dbColumns, where, null, null, null, null, null);
+			if(c.getCount()>0){
+				c.moveToFirst();
+				for (int counter = 0; counter < c.getCount(); counter++) {
+					UserNotification a = new UserNotification();
+					a.setId(c.getInt(c.getColumnIndex("id")));
+					a.setTitle(c.getString(c.getColumnIndex("title")));
+					a.setDescribtion(c.getString(c.getColumnIndex("description")));
+					a.setTime(c.getInt(c.getColumnIndex("time")));
+					a.setLink(c.getString(c.getColumnIndex("link")));
+					
+					n.add(a);
+					
+					if(c.moveToNext())
+						Log.i(TAG, "Position des Cursor aufs nächste Element geschoben");
+					else
+						Log.i(TAG, "Position konnte nicht verschoben werden, da das letzte Element erreicht wurde!");
+				}
+			}
+		}catch(Exception ex)
+		{
+			throw new DBAccessException(ex.getMessage());
+		}
+		return n;
 	}
 
 	@Override
 	public boolean saveWorkflow(ArrayList<Step> workflow)
 			throws DBAccessException {
-		// TODO Auto-generated method stub
-		return false;
+		for (Step step: workflow)
+		{
+			try
+			{
+				ContentValues insertValues = new ContentValues();
+				insertValues.put("action", step.getAction());
+				insertValues.put("amount", step.getAmount());
+				insertValues.put("time", step.getTime());
+				insertValues.put("days", step.getDaysBefore());
+				insertValues.put("timestamp", step.getTimeStamp().toString());
+				getWritableDatabase().insert("workflow", null, insertValues);
+			}catch(Exception ex)
+			{
+				throw new DBAccessException(ex.getMessage());
+			}
+		}
+		return true;
 	}
 
 
 	@Override
 	public void deleteWorkflow() throws DBAccessException {
-		// TODO Auto-generated method stub
+		try
+		{
+			getWritableDatabase().delete("workflow", null, null);
+		}
+		catch (Exception ex)
+		{
+			throw new DBAccessException(ex.toString());
+		}
 
 	}
 
@@ -202,9 +277,13 @@ public class DBAccessorImpl extends SQLiteOpenHelper implements DBAccessor {
 		// erstellen der tabellen
 		// wird nur bei der ersten nutzung der app aufgerufen
 				
-				db.execSQL("CREATE TABLE workflows (" + 
+				db.execSQL("CREATE TABLE workflow (" + 
 						"id INTEGER PRIMARY KEY AUTOINCREMENT," +
-						"Step TEXT);");
+						"action TEXT,"+
+						"amount TEXT,"+
+						"time TEXT,"+
+						"days TEXT,"+
+						"timestamp TEXT);");
 						
 				Log.i(TAG, "workflows tabelle erstellt");
 				
@@ -240,7 +319,7 @@ public class DBAccessorImpl extends SQLiteOpenHelper implements DBAccessor {
 						"description TEXT," +
 						"time INTEGER," +
 						"link TEXT,"+
-						"open INTEGER DEFAULT 0);");
+						"open INTEGER DEFAULT 1);");
 				
 				Log.i(TAG, "notifications tabelle erstellt");
 		
