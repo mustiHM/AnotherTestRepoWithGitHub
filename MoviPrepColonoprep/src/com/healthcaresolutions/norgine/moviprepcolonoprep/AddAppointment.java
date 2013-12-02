@@ -50,6 +50,8 @@ private class ClickListener implements OnClickListener{
 			if (clickedObject == btnsafe){
 				Log.i("listener", "Datum:" + datePicker.getDayOfMonth() + "." + (datePicker.getMonth()+1) + "." + datePicker.getYear());
 				Log.i("listener", "Zeit:" + timePicker.getCurrentHour() + ":" + timePicker.getCurrentMinute());
+				
+				finish();
 			}
 					
 		}
