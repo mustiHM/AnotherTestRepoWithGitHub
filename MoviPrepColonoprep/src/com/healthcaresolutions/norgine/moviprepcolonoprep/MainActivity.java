@@ -38,7 +38,7 @@ public class MainActivity extends Activity {
 	private WorkflowService ws;
 	private Thread thread;
 	private Context contextForListener;
-	//private ClickListener listener;
+	private ClickListener listener;
 	
 	
 	@Override
@@ -64,7 +64,7 @@ public class MainActivity extends Activity {
 		
 		// Einlesen der Konfig beginnen
 		
-		ws = new WorkflowServiceImpl(null);
+		ws = new WorkflowServiceImpl(contextForListener, null);
 		thread = new Thread(ws);
 		thread.start();
 		

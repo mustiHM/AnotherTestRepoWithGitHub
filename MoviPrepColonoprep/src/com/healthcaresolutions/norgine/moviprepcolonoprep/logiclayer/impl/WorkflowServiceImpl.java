@@ -25,7 +25,8 @@ public class WorkflowServiceImpl implements WorkflowService {
 	private Context context;
 	
 	
-	public WorkflowServiceImpl(Appointment appointment){
+	public WorkflowServiceImpl(Context context, Appointment appointment){
+		this.context = context;
 		this.ap = appointment;
 		//TODO switch with real activity.
 		cr = new ConfigReaderImpl(new Activity());
