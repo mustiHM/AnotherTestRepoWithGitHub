@@ -48,7 +48,8 @@ public class DBAccessorImpl extends SQLiteOpenHelper implements DBAccessor {
 
 	@Override
 	//TODO HOW DOES THIS WORK????
-	public Appointment getAppointment(int id) throws DBAccessException {
+	// Parameter ID entfernt, da es nur einen einzigen Appointment in der DB gibt
+	public Appointment getAppointment() throws DBAccessException {
 		Appointment a  = null;
 		try{
 			// hier werden alle Spalten der DB Tabelle angegeben
@@ -85,10 +86,11 @@ public class DBAccessorImpl extends SQLiteOpenHelper implements DBAccessor {
 	}
 
 	@Override
-	public boolean deleteAppointment(Appointment a) throws DBAccessException {
+	public boolean deleteAppointment() throws DBAccessException {
+		//TODO Paremeter ID entfernt, da es nur einen Appointment in der DB gibt.
 		try
 		{
-			getWritableDatabase().delete("appointments", "id=" + a.getId(), null);
+			getWritableDatabase().delete("appointments", null, null);
 		}
 		catch (Exception ex)
 		{
@@ -188,11 +190,6 @@ public class DBAccessorImpl extends SQLiteOpenHelper implements DBAccessor {
 		return false;
 	}
 
-	@Override
-	public ArrayList<Step> getWorkflow(int id) throws DBAccessException {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public void deleteWorkflow() throws DBAccessException {
@@ -253,5 +250,11 @@ public class DBAccessorImpl extends SQLiteOpenHelper implements DBAccessor {
 	public void onUpgrade(SQLiteDatabase arg0, int arg1, int arg2) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public ArrayList<Step> getWorkflow() throws DBAccessException {
+		// TODO habe die ID als Parameter entfernt, da der gesamte Workflow zurückgeliefert werden soll. ID ist deshalb nicht nötig (siehe Javadoc vom Interface)
+		return null;
 	}
 }

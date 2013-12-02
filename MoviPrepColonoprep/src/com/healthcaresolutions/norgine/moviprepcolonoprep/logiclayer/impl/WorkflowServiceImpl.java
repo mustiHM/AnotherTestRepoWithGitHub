@@ -4,6 +4,7 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 
 import android.app.Activity;
+import android.content.Context;
 
 import com.healthcaresolutions.norgine.moviprepcolonoprep.common.Appointment;
 import com.healthcaresolutions.norgine.moviprepcolonoprep.common.Step;
@@ -21,13 +22,14 @@ public class WorkflowServiceImpl implements WorkflowService {
 	private DBAccessor db;
 	private ArrayList<Step> steps;
 	private Appointment ap;
+	private Context context;
 	
 	
 	public WorkflowServiceImpl(Appointment appointment){
 		this.ap = appointment;
 		//TODO switch with real activity.
 		cr = new ConfigReaderImpl(new Activity());
-		db = new DBAccessorImpl();
+		db = new DBAccessorImpl(context);
 	}
 	
 	public void run(){
