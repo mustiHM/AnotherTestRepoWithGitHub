@@ -16,7 +16,9 @@ import org.xml.sax.EntityResolver;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
-public abstract class Parser {
+import android.app.Activity;
+
+public abstract class Parser{
 	
 	public static String getTextFromNodeList(NodeList nl) throws Exception
 	{

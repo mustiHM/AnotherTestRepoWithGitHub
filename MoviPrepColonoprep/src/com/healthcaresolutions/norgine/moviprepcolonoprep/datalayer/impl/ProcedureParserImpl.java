@@ -1,18 +1,30 @@
 package com.healthcaresolutions.norgine.moviprepcolonoprep.datalayer.impl;
 
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+
+import android.R;
+import android.app.Activity;
+
 import com.healthcaresolutions.norgine.moviprepcolonoprep.common.Step;
 import com.healthcaresolutions.norgine.moviprepcolonoprep.datalayer.ProcedureParser;
 
 
 public class ProcedureParserImpl extends Parser implements ProcedureParser{
 	
+	private Activity activity = null;
+	
+	public ProcedureParserImpl(Activity activity)
+	{
+		this.activity = activity;
+	}
+
 	public ArrayList<Step> getSteps()
 	{
 		return readStepsFromXML();
@@ -22,7 +34,13 @@ public class ProcedureParserImpl extends Parser implements ProcedureParser{
 	{
 		
 		ArrayList<Step> steps = new ArrayList<Step>();
-		InputStream is = ClassLoader.getSystemResourceAsStream("com.healthcaresolutions.norgine.moviprepcolonoprep.datalayer.files/procedure.xml");
+		InputStream is = null;
+		try {
+			is = activity.getAssets().open("procedure.xml");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		try{
 			Document doc = readXmlFromStream(is);
 			NodeList nl = doc.getElementsByTagName("step");

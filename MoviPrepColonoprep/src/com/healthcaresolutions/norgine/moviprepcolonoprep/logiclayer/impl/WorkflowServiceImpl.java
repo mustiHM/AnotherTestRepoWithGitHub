@@ -3,6 +3,8 @@ package com.healthcaresolutions.norgine.moviprepcolonoprep.logiclayer.impl;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 
+import android.app.Activity;
+
 import com.healthcaresolutions.norgine.moviprepcolonoprep.common.Appointment;
 import com.healthcaresolutions.norgine.moviprepcolonoprep.common.Step;
 import com.healthcaresolutions.norgine.moviprepcolonoprep.common.exceptions.DBAccessException;
@@ -23,7 +25,8 @@ public class WorkflowServiceImpl implements WorkflowService {
 	
 	public WorkflowServiceImpl(Appointment appointment){
 		this.ap = appointment;
-		cr = new ConfigReaderImpl();
+		//TODO switch with real activity.
+		cr = new ConfigReaderImpl(new Activity());
 		db = new DBAccessorImpl();
 	}
 	
