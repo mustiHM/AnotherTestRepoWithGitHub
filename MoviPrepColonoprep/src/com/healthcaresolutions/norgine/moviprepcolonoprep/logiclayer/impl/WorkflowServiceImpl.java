@@ -29,7 +29,7 @@ public class WorkflowServiceImpl implements WorkflowService {
 		this.context = context;
 		this.ap = appointment;
 		//TODO switch with real activity.
-		cr = new ConfigReaderImpl(new Activity());
+		cr = new ConfigReaderImpl(context.getAssets());
 		db = new DBAccessorImpl(context);
 	}
 	

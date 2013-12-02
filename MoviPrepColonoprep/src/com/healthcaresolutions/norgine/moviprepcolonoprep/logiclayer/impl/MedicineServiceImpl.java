@@ -1,6 +1,8 @@
 package com.healthcaresolutions.norgine.moviprepcolonoprep.logiclayer.impl;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.res.AssetManager;
 
 import com.healthcaresolutions.norgine.moviprepcolonoprep.common.Medicine;
 import com.healthcaresolutions.norgine.moviprepcolonoprep.datalayer.ConfigReader;
@@ -11,7 +13,14 @@ public class MedicineServiceImpl implements MedicineService {
 
 	private Medicine defaultMedicine; // Standart-Medikament, falls keine Config verfügbar.
 	//TODO switch with real activity.
-	private ConfigReader cr = new ConfigReaderImpl(new Activity());
+	private ConfigReader cr;
+	private Context context;
+	private AssetManager manager;
+	
+	public MedicineServiceImpl(Context context){
+		this.context = context;
+		cr = new ConfigReaderImpl(manager);
+	}
 	
 	public Medicine getMedicineInfo() {
 		

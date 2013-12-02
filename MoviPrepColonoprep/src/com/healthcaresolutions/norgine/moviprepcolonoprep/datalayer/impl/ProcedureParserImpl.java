@@ -11,6 +11,7 @@ import org.w3c.dom.NodeList;
 
 import android.R;
 import android.app.Activity;
+import android.content.res.AssetManager;
 
 import com.healthcaresolutions.norgine.moviprepcolonoprep.common.Step;
 import com.healthcaresolutions.norgine.moviprepcolonoprep.datalayer.ProcedureParser;
@@ -19,10 +20,11 @@ import com.healthcaresolutions.norgine.moviprepcolonoprep.datalayer.ProcedurePar
 public class ProcedureParserImpl extends Parser implements ProcedureParser{
 	
 	private Activity activity = null;
+	private AssetManager manager = null; 
 	
-	public ProcedureParserImpl(Activity activity)
+	public ProcedureParserImpl(AssetManager manager)
 	{
-		this.activity = activity;
+		this.manager = manager;
 	}
 
 	public ArrayList<Step> getSteps()
@@ -36,7 +38,7 @@ public class ProcedureParserImpl extends Parser implements ProcedureParser{
 		ArrayList<Step> steps = new ArrayList<Step>();
 		InputStream is = null;
 		try {
-			is = activity.getAssets().open("procedure.xml");
+			is = manager.open("procedure.xml");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

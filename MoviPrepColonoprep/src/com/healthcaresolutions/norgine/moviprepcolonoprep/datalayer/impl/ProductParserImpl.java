@@ -9,6 +9,7 @@ import org.xmlpull.v1.XmlPullParserException;
 
 import android.R;
 import android.app.Activity;
+import android.content.res.AssetManager;
 
 import com.healthcaresolutions.norgine.moviprepcolonoprep.common.Medicine;
 import com.healthcaresolutions.norgine.moviprepcolonoprep.datalayer.ProductParser;
@@ -16,9 +17,10 @@ import com.healthcaresolutions.norgine.moviprepcolonoprep.datalayer.ProductParse
 public class ProductParserImpl extends Parser implements ProductParser {
 
 	private Activity activity = null;
+	private AssetManager manager;
 	
-	public ProductParserImpl(Activity activity) {
-		this.activity = activity;
+	public ProductParserImpl(AssetManager manager) {
+		this.manager = manager;
 	}
 
 	@Override
@@ -30,7 +32,7 @@ public class ProductParserImpl extends Parser implements ProductParser {
 		Medicine med = null;
 		InputStream is = null;
 		try {
-			is = activity.getAssets().open("product.xml");
+			is = manager.open("product.xml");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
