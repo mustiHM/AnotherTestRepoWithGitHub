@@ -51,7 +51,9 @@ public class DBAccessorImpl extends SQLiteOpenHelper implements DBAccessor {
 	public Appointment getAppointment(int id) throws DBAccessException {
 		Appointment a  = null;
 		try{
+			// hier werden alle Spalten der DB Tabelle angegeben
 			String[] dbColumns = new String[]{"id as _id", "hospital", "year", "month", "day", "hour", "min"};
+			// die Methode query bekommt als ersten Parameter die Tabelle, dann die Spalten von oben, dann ein mögliches where statement und den rest null objekte, da keine sortierung wichtig
 			Cursor c = getReadableDatabase().query("appointments", dbColumns, null, null, null, null, null, null);
 			if(c.getCount()>0){
 				String x = null;

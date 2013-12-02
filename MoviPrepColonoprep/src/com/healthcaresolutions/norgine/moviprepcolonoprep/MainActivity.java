@@ -30,7 +30,7 @@ import android.widget.Button;
 public class MainActivity extends Activity {
 
 	private Button btnAdministrateAppointment;
-	private Button btnOverview;
+	private Button btnPreparation;
 	private Button btnSettings;
 	private Button btnInfo;
 	private Button btnFoodList;
@@ -51,8 +51,8 @@ public class MainActivity extends Activity {
 		
 		btnAdministrateAppointment = (Button) findViewById(R.id.btnAdministrateAppointment);
 		btnAdministrateAppointment.setOnClickListener(listener);
-		btnOverview = (Button) findViewById(R.id.btnOverview);
-		btnOverview.setOnClickListener(listener);
+		btnPreparation = (Button) findViewById(R.id.btnPreparation);
+		btnPreparation.setOnClickListener(listener);
 		btnSettings = (Button) findViewById(R.id.btnSettings);
 		btnSettings.setOnClickListener(listener);
 		btnInfo = (Button) findViewById(R.id.btnInfo);
@@ -87,7 +87,7 @@ public class MainActivity extends Activity {
 				Intent myIntent = new Intent(contextForListener, AdministrateAppointmentActivity.class);
 				startActivity(myIntent);
 			}
-			if (clickedObject == btnOverview){
+			if (clickedObject == btnPreparation){
 				
 			}
 			if (clickedObject == btnSettings){
