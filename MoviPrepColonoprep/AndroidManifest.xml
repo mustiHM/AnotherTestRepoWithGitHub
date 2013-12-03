@@ -36,7 +36,15 @@
         </activity>
         <activity
             android:name="com.healthcaresolutions.norgine.moviprepcolonoprep.Imprint"
+            android:label="@string/title_activity_imprint" >
+        </activity>
+        <activity
+            android:name="com.healthcaresolutions.norgine.moviprepcolonoprep.Info"
             android:label="@string/title_info" >
+        </activity>
+        <activity
+            android:name="com.healthcaresolutions.norgine.moviprepcolonoprep.Preparation"
+            android:label="@string/title_activity_preparation" >
         </activity>
     </application>
 

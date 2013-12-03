@@ -88,13 +88,15 @@ public class MainActivity extends Activity {
 				startActivity(myIntent);
 			}
 			if (clickedObject == btnPreparation){
-				
+				Intent myIntent = new Intent(contextForListener, Preparation.class);
+				startActivity(myIntent);
 			}
 			if (clickedObject == btnSettings){
 							
 						}
 			if (clickedObject == btnInfo){
-				
+				Intent myIntent = new Intent(contextForListener, Info.class);
+				startActivity(myIntent);
 			}
 			if (clickedObject == btnChecklist){
 				

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import android.app.Activity;
 import android.content.Context;
+import android.util.Log;
 
 import com.healthcaresolutions.norgine.moviprepcolonoprep.common.Appointment;
 import com.healthcaresolutions.norgine.moviprepcolonoprep.common.Step;
@@ -42,6 +43,7 @@ public class WorkflowServiceImpl implements WorkflowService {
 				e.printStackTrace();
 			} catch (DBAccessException e) {
 				// TODO Auto-generated catch block
+				//Log.e("workflow thread", e.getCause().getMessage());
 				e.printStackTrace();
 			}
 		

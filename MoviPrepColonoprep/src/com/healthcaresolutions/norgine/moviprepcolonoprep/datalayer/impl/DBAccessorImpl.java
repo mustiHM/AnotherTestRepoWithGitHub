@@ -1,5 +1,6 @@
 package com.healthcaresolutions.norgine.moviprepcolonoprep.datalayer.impl;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 
 import android.content.ContentValues;
@@ -7,6 +8,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.database.sqlite.SQLiteStatement;
 import android.util.Log;
 
 import com.healthcaresolutions.norgine.moviprepcolonoprep.common.Appointment;
@@ -263,11 +265,12 @@ public class DBAccessorImpl extends SQLiteOpenHelper implements DBAccessor {
 	public boolean saveWorkflow(ArrayList<Step> workflow)
 			throws DBAccessException {
 		deleteWorkflow();
+		Log.i("DBAccessorImpl", "Workflow aus DB gelöscht");
 		for (Step step: workflow)
 		{
 			try
 			{
-				ContentValues insertValues = new ContentValues();
+				/*ContentValues insertValues = new ContentValues();
 				insertValues.put("action", step.getAction());
 				insertValues.put("amount", step.getAmount());
 				insertValues.put("time", step.getTime());
@@ -281,7 +284,25 @@ public class DBAccessorImpl extends SQLiteOpenHelper implements DBAccessor {
 				{
 					insertValues.put("status",0);
 				}
-				getWritableDatabase().insert("workflow", null, insertValues);
+				getWritableDatabase().insert("workflow", null, insertValues);*/
+				
+				SQLiteStatement stmt = getWritableDatabase().compileStatement("INSERT INTO workflow (action, amount, time, days, timestamp, status) VALUES (?,?,?,?,?,?)");
+				stmt.bindString(1, step.getAction());
+				stmt.bindString(2, step.getAmount());
+				stmt.bindString(3, step.getTime());
+				stmt.bindString(4, "" + step.getDaysBefore()); // Umwandlung in einen String
+				stmt.bindString(5, step.getTimeStamp().toString());
+				stmt.bindString(6, step.getStatus().toString());
+				
+				
+				if(stmt.executeInsert() < 0)
+					Log.e(TAG, "Ein Fehler ist beim Speichern des Workflows aufgetreten!");
+				else
+					Log.i(TAG, "Das Speichern des Workflows war erfolgreich!");
+				
+				
+				stmt.close();
+				
 			}catch(Exception ex)
 			{
 				throw new DBAccessException(ex.getMessage());
@@ -316,7 +337,7 @@ public class DBAccessorImpl extends SQLiteOpenHelper implements DBAccessor {
 						"time TEXT,"+
 						"days TEXT,"+
 						"timestamp TEXT,"+
-						"status INTEGER DEFAULT 0);");
+						"status TEXT);");
 						
 				Log.i(TAG, "workflows tabelle erstellt");
 				
@@ -367,6 +388,53 @@ public class DBAccessorImpl extends SQLiteOpenHelper implements DBAccessor {
 	@Override
 	public ArrayList<Step> getWorkflow() throws DBAccessException {
 		// TODO habe die ID als Parameter entfernt, da der gesamte Workflow zurückgeliefert werden soll. ID ist deshalb nicht nötig (siehe Javadoc vom Interface)
-		return null;
+		
+		ArrayList<Step> steps = new ArrayList<Step>();
+		
+		// alle infos aus der db holen
+		String[] dbColumns = new String[]{"id as _id", "action", "amount", "time", "days", "timestamp", "status"};
+		Cursor c = getReadableDatabase().query("workflow", dbColumns, null, null, null, null, null, null);
+			
+		Log.i(TAG, "Query erfolgreich durchgeführt");
+		
+		if(c.getCount()>0){
+			
+			c.moveToFirst();
+			
+			for (int counter = 0; counter < c.getCount(); counter++) {
+				
+				String action = c.getString(c.getColumnIndex("action"));
+				String amount = c.getString(c.getColumnIndex("amount"));
+				String time = c.getString(c.getColumnIndex("time"));
+				String days = c.getString(c.getColumnIndex("days"));
+				String timestamp = c.getString(c.getColumnIndex("timestamp"));
+				String status = c.getString(c.getColumnIndex("status"));
+				
+				Step step = new Step();
+				step.setAction(action);
+				step.setAmount(amount);
+				step.setTime(time);
+				step.setDaysBefore(Integer.parseInt(days));
+				step.setTimestamp(Timestamp.valueOf(timestamp));
+				if(status.equals(Status.DONE)){
+					step.setStatus(Status.DONE);
+				}
+				else{
+					step.setStatus(Status.OPEN);
+				}
+				
+				steps.add(step);
+				
+				if(c.moveToNext())
+					Log.i(TAG, "Position des Cursor aufs nächste Element geschoben");
+				else
+					Log.i(TAG, "Position konnte nicht verschoben werden, da das letzte Element erreicht wurde!");
+				
+				
+			}
+			
+		}
+		
+		return steps;
 	}
 }
