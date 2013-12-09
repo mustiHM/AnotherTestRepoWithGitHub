@@ -1,8 +1,12 @@
 package com.healthcaresolutions.norgine.moviprepcolonoprep.datalayer.impl;
 
 
+import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -12,6 +16,7 @@ import org.w3c.dom.NodeList;
 import android.R;
 import android.app.Activity;
 import android.content.res.AssetManager;
+import android.util.Log;
 
 import com.healthcaresolutions.norgine.moviprepcolonoprep.common.Step;
 import com.healthcaresolutions.norgine.moviprepcolonoprep.datalayer.ProcedureParser;
@@ -34,8 +39,9 @@ public class ProcedureParserImpl extends Parser implements ProcedureParser{
 	
 	public ArrayList<Step> readStepsFromXML()
 	{
+		//to read from local xml
+		/*
 		
-		ArrayList<Step> steps = new ArrayList<Step>();
 		InputStream is = null;
 		try {
 			is = manager.open("procedure.xml");
@@ -43,8 +49,21 @@ public class ProcedureParserImpl extends Parser implements ProcedureParser{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		*/
+		
+	       ArrayList<Step> steps = new ArrayList<Step>();
+	       URL url;
+	       HttpURLConnection urlConnection = null;
+		try {
+			url = new URL("http://www.bestofdesigns.be/healtysol/procedure.xml");
+			urlConnection = (HttpURLConnection) url.openConnection();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			Log.d("url",e.getMessage());
+		}
+	       
 		try{
-			Document doc = readXmlFromStream(is);
+			Document doc = readXmlFromStream(new BufferedInputStream(urlConnection.getInputStream()));
 			NodeList nl = doc.getElementsByTagName("step");
 			if (nl != null && nl.getLength() > 0) {
 		        for (int i = 0; i < nl.getLength(); i++) {
@@ -75,6 +94,9 @@ public class ProcedureParserImpl extends Parser implements ProcedureParser{
 		catch(Exception ex)
 		{
 			System.out.println(ex.getMessage());
+		}
+		finally{
+			urlConnection.disconnect();
 		}
 		
 		return steps;
