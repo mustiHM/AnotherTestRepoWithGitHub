@@ -10,6 +10,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 public class AddAppointment extends Activity {
 
@@ -51,6 +52,8 @@ private class ClickListener implements OnClickListener{
 				Log.i("listener", "Datum:" + datePicker.getDayOfMonth() + "." + (datePicker.getMonth()+1) + "." + datePicker.getYear());
 				Log.i("listener", "Zeit:" + timePicker.getCurrentHour() + ":" + timePicker.getCurrentMinute());
 				
+				
+				Toast.makeText(getApplicationContext(), "Der Termin wurde gespeichert.", Toast.LENGTH_SHORT).show();
 				finish();
 			}
 					

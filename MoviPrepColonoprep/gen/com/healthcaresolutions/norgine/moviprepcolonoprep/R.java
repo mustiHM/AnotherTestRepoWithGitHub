@@ -27,8 +27,7 @@ public final class R {
     }
     public static final class id {
         public static final int RelativeLayout1=0x7f080000;
-        public static final int ScrollView11=0x7f080027;
-        public static final int action_settings=0x7f08002c;
+        public static final int action_settings=0x7f080025;
         public static final int btnAddAppointment=0x7f080007;
         public static final int btnAdministrateAppointment=0x7f080016;
         public static final int btnChangeAppointment=0x7f080008;
@@ -38,8 +37,8 @@ public final class R {
         public static final int btnImprint=0x7f080013;
         public static final int btnInfo=0x7f080019;
         public static final int btnMedicineInfo=0x7f080012;
-        public static final int btnNextStep=0x7f08002a;
-        public static final int btnOverview=0x7f08002b;
+        public static final int btnNextStep=0x7f080023;
+        public static final int btnOverview=0x7f080024;
         public static final int btnPreparation=0x7f080015;
         public static final int btnSettings=0x7f08001a;
         public static final int btnWelcome=0x7f08001b;
@@ -50,18 +49,12 @@ public final class R {
         public static final int lblAdministrateAppointment=0x7f080006;
         public static final int lblInfo=0x7f080011;
         public static final int lblOverview=0x7f080021;
-        public static final int lblPreparation=0x7f080029;
+        public static final int lblPreparation=0x7f080022;
         public static final int lblWelcome=0x7f080014;
         public static final int lblimprint=0x7f08000a;
         public static final int lblmedicineInfo=0x7f08001c;
         public static final int lblnextStep=0x7f080020;
-        public static final int ll_steps=0x7f080026;
-        public static final int step_table=0x7f080028;
-        public static final int table_heading=0x7f080022;
         public static final int timePicker1=0x7f080004;
-        public static final int tv_11=0x7f080023;
-        public static final int tv_12=0x7f080024;
-        public static final int tv_13=0x7f080025;
         public static final int txtcompanyname=0x7f08000e;
         public static final int txtcontact=0x7f08000c;
         public static final int txths=0x7f08000d;
