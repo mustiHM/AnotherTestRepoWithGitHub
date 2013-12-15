@@ -22,12 +22,14 @@ public final class R {
     }
     public static final class drawable {
         public static final int bl=0x7f020000;
-        public static final int ic_launcher=0x7f020001;
-        public static final int moviprep_5=0x7f020002;
+        public static final int drink=0x7f020001;
+        public static final int ic_launcher=0x7f020002;
+        public static final int moviprep_5=0x7f020003;
+        public static final int no_food=0x7f020004;
     }
     public static final class id {
         public static final int RelativeLayout1=0x7f080000;
-        public static final int action_settings=0x7f080025;
+        public static final int action_settings=0x7f08002e;
         public static final int btnAddAppointment=0x7f080007;
         public static final int btnAdministrateAppointment=0x7f080016;
         public static final int btnChangeAppointment=0x7f080008;
@@ -37,24 +39,33 @@ public final class R {
         public static final int btnImprint=0x7f080013;
         public static final int btnInfo=0x7f080019;
         public static final int btnMedicineInfo=0x7f080012;
-        public static final int btnNextStep=0x7f080023;
-        public static final int btnOverview=0x7f080024;
+        public static final int btnNextStep=0x7f080022;
+        public static final int btnOverview=0x7f08002d;
         public static final int btnPreparation=0x7f080015;
+        public static final int btnPreviousStep=0x7f080023;
         public static final int btnSettings=0x7f08001a;
         public static final int btnWelcome=0x7f08001b;
         public static final int btnsafe=0x7f080005;
         public static final int datePicker1=0x7f080003;
+        public static final int imgAction=0x7f08002a;
         public static final int imgLogo=0x7f080002;
         public static final int lblAddAppointment=0x7f080001;
         public static final int lblAdministrateAppointment=0x7f080006;
         public static final int lblInfo=0x7f080011;
         public static final int lblOverview=0x7f080021;
-        public static final int lblPreparation=0x7f080022;
+        public static final int lblPreparation=0x7f08002c;
         public static final int lblWelcome=0x7f080014;
         public static final int lblimprint=0x7f08000a;
         public static final int lblmedicineInfo=0x7f08001c;
         public static final int lblnextStep=0x7f080020;
         public static final int timePicker1=0x7f080004;
+        public static final int txtAmount=0x7f080029;
+        public static final int txtDays=0x7f080025;
+        public static final int txtStepAmount=0x7f080028;
+        public static final int txtStepDays=0x7f080024;
+        public static final int txtStepDescribtion=0x7f08002b;
+        public static final int txtStepTime=0x7f080026;
+        public static final int txtTime=0x7f080027;
         public static final int txtcompanyname=0x7f08000e;
         public static final int txtcontact=0x7f08000c;
         public static final int txths=0x7f08000d;
@@ -83,40 +94,50 @@ public final class R {
         public static final int medicine_info=0x7f070003;
     }
     public static final class string {
+        public static final int action_diet=0x7f050029;
+        public static final int action_drink=0x7f05002a;
         public static final int action_settings=0x7f050001;
         public static final int addAppointment=0x7f05000a;
         public static final int administrateAppointment=0x7f050003;
         public static final int app_name=0x7f050000;
         public static final int changeAppointment=0x7f05000b;
         public static final int checklist=0x7f050006;
-        public static final int company_name=0x7f05001a;
-        public static final int contact=0x7f05001d;
+        public static final int company_name=0x7f05001b;
+        public static final int contact=0x7f05001e;
         public static final int deleteAppointment=0x7f05000c;
         public static final int foodList=0x7f050005;
-        public static final int hello_world=0x7f050016;
-        public static final int hs=0x7f050019;
-        public static final int imprint=0x7f050013;
-        public static final int imprint_text=0x7f050018;
+        public static final int hello_world=0x7f050017;
+        public static final int hs=0x7f05001a;
+        public static final int imprint=0x7f050014;
+        public static final int imprint_text=0x7f050019;
         public static final int info=0x7f050008;
-        public static final int medicineInfo=0x7f050012;
-        public static final int medicine_description=0x7f05001f;
-        public static final int medicine_manufacturer=0x7f050020;
-        public static final int medicine_name=0x7f05001e;
+        public static final int medicineInfo=0x7f050013;
+        public static final int medicine_description=0x7f050020;
+        public static final int medicine_manufacturer=0x7f050021;
+        public static final int medicine_name=0x7f05001f;
         public static final int nextStep=0x7f05000e;
         public static final int preparation=0x7f050004;
         public static final int preparationOverview=0x7f05000d;
-        public static final int safe=0x7f050021;
+        public static final int previousStep=0x7f05000f;
+        public static final int safe=0x7f050022;
         public static final int settings=0x7f050007;
-        public static final int street=0x7f05001b;
+        public static final int stepActionDrink=0x7f050027;
+        public static final int stepAmountDescibtion=0x7f050028;
+        public static final int stepDayDescribtionFuture=0x7f050024;
+        public static final int stepDayDescribtionToday=0x7f050025;
+        public static final int stepDays=0x7f050023;
+        public static final int stepTime=0x7f050026;
+        public static final int street=0x7f05001c;
+        public static final int time=0x7f05002b;
         public static final int title_activity_administrate_appointment=0x7f050009;
-        public static final int title_activity_imprint=0x7f050017;
-        public static final int title_activity_medicine_info=0x7f050015;
-        public static final int title_activity_overview=0x7f050014;
-        public static final int title_activity_preparation=0x7f05000f;
-        public static final int title_addAppointment=0x7f050010;
-        public static final int title_info=0x7f050011;
+        public static final int title_activity_imprint=0x7f050018;
+        public static final int title_activity_medicine_info=0x7f050016;
+        public static final int title_activity_overview=0x7f050015;
+        public static final int title_activity_preparation=0x7f050010;
+        public static final int title_addAppointment=0x7f050011;
+        public static final int title_info=0x7f050012;
         public static final int welcome=0x7f050002;
-        public static final int zip_code=0x7f05001c;
+        public static final int zip_code=0x7f05001d;
     }
     public static final class style {
         /** 

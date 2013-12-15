@@ -16,6 +16,7 @@
     <string name="deleteAppointment">Termin löschen</string>
     <string name="preparationOverview">Überblick</string>
     <string name="nextStep">Nächster Schritt</string>
+    <string name="previousStep">Vorheriger Schritt</string>
     <string name="title_activity_preparation">Vorbereitung</string>
     <string name="title_addAppointment">Termin einragen</string>
     <string name="title_info">Info</string>
@@ -35,7 +36,13 @@
 	<string name="medicine_description">Beschreibung:</string>
 	<string name="medicine_manufacturer">Hersteller:</string>
 	<string name="safe">Speichern</string>
-	
-	
-	
+	<string name="stepDays">Tag:</string>
+	<string name="stepDayDescribtionFuture">Tag vor der Untersuchung</string>
+	<string name="stepDayDescribtionToday">Tag der Untersuchung</string>
+	<string name="stepTime">Uhrzeit:</string>
+	<string name="stepActionDrink">Bitte trinken Sie jetzt das Medikament.</string>
+	<string name="stepAmountDescibtion">Erforderliche Menge:</string>
+	<string name="action_diet">Bitte nehmen Sie keine feste Nahrung mehr zu sich!</string>
+	<string name="action_drink">Bitte nehmen Sie jetzt den Drink zu sich!</string>
+	<string name="time">Uhr</string>
 </resources>

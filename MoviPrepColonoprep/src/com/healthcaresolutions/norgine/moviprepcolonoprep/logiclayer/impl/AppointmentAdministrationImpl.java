@@ -1,8 +1,11 @@
 package com.healthcaresolutions.norgine.moviprepcolonoprep.logiclayer.impl;
 
+import android.content.Context;
+
 import com.healthcaresolutions.norgine.moviprepcolonoprep.common.Appointment;
 import com.healthcaresolutions.norgine.moviprepcolonoprep.common.exceptions.IllegalUserInputException;
 import com.healthcaresolutions.norgine.moviprepcolonoprep.datalayer.DBAccessor;
+import com.healthcaresolutions.norgine.moviprepcolonoprep.datalayer.impl.DBAccessorImpl;
 import com.healthcaresolutions.norgine.moviprepcolonoprep.logiclayer.AppointmentAdministration;
 
 /**
@@ -12,6 +15,12 @@ import com.healthcaresolutions.norgine.moviprepcolonoprep.logiclayer.Appointment
 public class AppointmentAdministrationImpl implements AppointmentAdministration {
 
 	private DBAccessor db;
+	private Context context;
+	
+	public AppointmentAdministrationImpl(Context context){
+		this.context = context;
+		db = new DBAccessorImpl(context);
+	}
 	
 	@Override
 	public boolean addAppointment(Appointment a) throws Exception{
@@ -44,5 +53,10 @@ public class AppointmentAdministrationImpl implements AppointmentAdministration 
 		return db.deleteAppointment();
 
 	}
+
+	@Override
+	public Appointment getAppointment() throws Exception {
+		return db.getAppointment();
+		}
 
 }

@@ -26,4 +26,92 @@
             android:layout_marginTop="31dp"
             android:src="@drawable/moviprep_5" />
 
+      <Button
+          android:id="@+id/btnNextStep"
+          style="?android:attr/buttonStyleSmall"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignRight="@+id/imgLogo"
+          android:layout_below="@+id/imgLogo"
+          android:text="@string/nextStep" />
+
+      <Button
+          android:id="@+id/btnPreviousStep"
+          style="?android:attr/buttonStyleSmall"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignLeft="@+id/imgLogo"
+          android:layout_alignTop="@+id/btnNextStep"
+          android:text="@string/previousStep" />
+
+      <TextView
+          android:id="@+id/txtStepDays"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignBaseline="@+id/txtDays"
+          android:layout_alignBottom="@+id/txtDays"
+          android:layout_toRightOf="@+id/lblOverview"
+          android:text="TextView" />
+
+      <TextView
+          android:id="@+id/txtStepTime"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignBaseline="@+id/txtTime"
+          android:layout_alignBottom="@+id/txtTime"
+          android:layout_alignLeft="@+id/txtStepDays"
+          android:text="TextView" />
+
+      <TextView
+          android:id="@+id/txtStepAmount"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignBottom="@+id/txtAmount"
+          android:layout_toRightOf="@+id/txtStepTime"
+          android:text="TextView" />
+
+      <ImageView
+          android:id="@+id/imgAction"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_below="@+id/btnNextStep"
+          android:layout_centerHorizontal="true"
+          android:src="@drawable/no_food" />
+
+      <TextView
+          android:id="@+id/txtAmount"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignLeft="@+id/txtStepDescribtion"
+          android:layout_alignParentBottom="true"
+          android:layout_marginBottom="33dp"
+          android:text="@string/stepAmountDescibtion" />
+
+      <TextView
+          android:id="@+id/txtStepDescribtion"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_above="@+id/txtAmount"
+          android:layout_alignLeft="@+id/txtTime"
+          android:layout_marginBottom="16dp"
+          android:text="Large Text"
+          android:textAppearance="?android:attr/textAppearanceLarge" />
+
+      <TextView
+          android:id="@+id/txtTime"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_above="@+id/txtStepDescribtion"
+          android:layout_alignLeft="@+id/txtDays"
+          android:layout_marginBottom="14dp"
+          android:text="@string/stepTime" />
+
+      <TextView
+          android:id="@+id/txtDays"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_above="@+id/txtTime"
+          android:layout_alignLeft="@+id/btnPreviousStep"
+          android:text="@string/stepDays" />
+
 </RelativeLayout>

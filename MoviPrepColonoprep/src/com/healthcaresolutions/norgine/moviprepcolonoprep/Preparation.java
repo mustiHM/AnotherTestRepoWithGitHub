@@ -45,8 +45,8 @@ public class Preparation extends Activity {
 				//startActivity(myIntent);
 			}
 			else if (clickedObject == btnOverview){
-				//Intent myIntent = new Intent(contextForListener, Medicine_info.class);
-				//startActivity(myIntent);
+				Intent myIntent = new Intent(contextForListener, PreparationOverview.class);
+				startActivity(myIntent);
 			}
 		}
 	}

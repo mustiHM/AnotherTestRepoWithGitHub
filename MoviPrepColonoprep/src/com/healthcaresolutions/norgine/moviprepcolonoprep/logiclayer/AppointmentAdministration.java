@@ -29,4 +29,6 @@ public interface AppointmentAdministration {
 	 * @throws Exception falls kein Datensatz zum Löschen existiert.
 	 */
 	public boolean deleteAppointment() throws Exception;
+	
+	public Appointment getAppointment() throws Exception;
 }

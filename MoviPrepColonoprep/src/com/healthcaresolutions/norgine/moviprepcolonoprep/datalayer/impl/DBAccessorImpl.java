@@ -268,8 +268,7 @@ public class DBAccessorImpl extends SQLiteOpenHelper implements DBAccessor {
 		Log.i("DBAccessorImpl", "Workflow aus DB gelöscht");
 		for (Step step: workflow)
 		{
-			try
-			{
+			
 				/*ContentValues insertValues = new ContentValues();
 				insertValues.put("action", step.getAction());
 				insertValues.put("amount", step.getAmount());
@@ -287,12 +286,35 @@ public class DBAccessorImpl extends SQLiteOpenHelper implements DBAccessor {
 				getWritableDatabase().insert("workflow", null, insertValues);*/
 				
 				SQLiteStatement stmt = getWritableDatabase().compileStatement("INSERT INTO workflow (action, amount, time, days, timestamp, status) VALUES (?,?,?,?,?,?)");
+				/*
+				 * "action TEXT,"+
+						"amount TEXT,"+
+						"time TEXT,"+
+						"days TEXT,"+
+						"timestamp TEXT,"+
+						"status TEXT);");
+				 */
 				stmt.bindString(1, step.getAction());
-				stmt.bindString(2, step.getAmount());
+				if(step.getAmount()==null){
+					stmt.bindString(2, "");
+				}
+				else {
+					stmt.bindString(2, step.getAmount());
+				}
 				stmt.bindString(3, step.getTime());
 				stmt.bindString(4, "" + step.getDaysBefore()); // Umwandlung in einen String
-				stmt.bindString(5, step.getTimeStamp().toString());
-				stmt.bindString(6, step.getStatus().toString());
+				if(step.getTimeStamp()==null){
+					stmt.bindString(5, "");
+				}
+				else{
+					stmt.bindString(5, step.getTimeStamp().toString());
+				}
+				if(step.getStatus()==null){
+					stmt.bindString(6, "");
+				}
+				else {
+					stmt.bindString(6, step.getStatus().toString());
+				}
 				
 				
 				if(stmt.executeInsert() < 0)
@@ -302,11 +324,7 @@ public class DBAccessorImpl extends SQLiteOpenHelper implements DBAccessor {
 				
 				
 				stmt.close();
-				
-			}catch(Exception ex)
-			{
-				throw new DBAccessException(ex.getMessage());
-			}
+			
 		}
 		return true;
 	}
@@ -415,7 +433,12 @@ public class DBAccessorImpl extends SQLiteOpenHelper implements DBAccessor {
 				step.setAmount(amount);
 				step.setTime(time);
 				step.setDaysBefore(Integer.parseInt(days));
-				step.setTimestamp(Timestamp.valueOf(timestamp));
+				if(timestamp.equals("")){
+					step.setTimestamp(null);
+				}
+				else {
+					step.setTimestamp(Timestamp.valueOf(timestamp));
+				}
 				if(status.equals(Status.DONE)){
 					step.setStatus(Status.DONE);
 				}

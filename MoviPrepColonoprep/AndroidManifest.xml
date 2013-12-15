@@ -46,6 +46,10 @@
             android:name="com.healthcaresolutions.norgine.moviprepcolonoprep.Preparation"
             android:label="@string/title_activity_preparation" >
         </activity>
+        <activity
+            android:name="com.healthcaresolutions.norgine.moviprepcolonoprep.PreparationOverview"
+            android:label="@string/title_activity_overview" >
+        </activity>
     </application>
 
 </manifest>
